@@ -4,15 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server/server.js",
-    "ndmn": "nodemon server/server.js",
+    "start": "node server/ser.js",
+    "ndmn": "nodemon bin/devstart.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
+    "custom-env": "^1.0.0",
     "express": "^4.16.4",
     "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "dotenv": "^6.2.0"
   }
 }
