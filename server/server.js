@@ -20,32 +20,32 @@ app.get(('/'), (req, res) => {
 
 app.post(('/search'), (req, res) => {
   console.log(req.body.latitude, req.body.longitude, req.body.query);
-  // var location =  "";
-  // if (req.body.query) {
-  //   getCoords(req.body.query).then((response) => {
-  //     console.log(response.data.results[0])
-  //     var latitude = response.data.results[0].locations[0].latLng.lat;
-  //     var longitude = response.data.results[0].locations[0].latLng.lng;
-  //     location = response.data.results[0].locations[0].adminArea5;
-  //     axios.get(`${process.env.DS_APIKEY}${latitude},${longitude}`).then(dsweather => {
-  //       dsweather.data.city = location;
-  //       console.log(dsweather.data);
-  //       res.send(dsweather.data);
-  //     }).catch(err => {
-  //       if(err) {
-  //         console.log(err)
-  //       }
-  //     })
-  //   });
-  // }else{
-    axios.get(`https://api.darksky.net/forecast/0f453cfad4840e42ce7adc03a357981a/${req.body.latitude}, ${req.body.longitude}`).then(dsweather => {
+  var location =  "";
+  if (req.body.query) {
+    getCoords(req.body.query).then((response) => {
+      console.log(response.data.results[0])
+      var latitude = response.data.results[0].locations[0].latLng.lat;
+      var longitude = response.data.results[0].locations[0].latLng.lng;
+      location = response.data.results[0].locations[0].adminArea5;
+      axios.get(`${process.env.DS_APIKEY}${latitude},${longitude}`).then(dsweather => {
+        dsweather.data.city = location;
+        console.log(dsweather.data);
+        res.send(dsweather.data);
+      }).catch(err => {
+        if(err) {
+          console.log(err)
+        }
+      })
+    });
+  }else{
+    axios.get(`${process.env.DS_APIKEY}${req.body.latitude}, ${req.body.longitude}`).then(dsweather => {
       res.send(dsweather.data);
     }).catch(err => {
       if(err) {
         console.log(err)
       }
     });
-  // }
+  }
 
 
 
