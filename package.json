@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server/ser.js",
+    "start": "node server/server.js",
     "ndmn": "nodemon bin/devstart.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
