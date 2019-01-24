@@ -19,7 +19,6 @@ app.get(('/'), (req, res) => {
 })
 
 app.post(('/search'), (req, res) => {
-  res.send('hello');
   console.log(req.body.latitude, req.body.longitude, req.body.query);
   // var location =  "";
   // if (req.body.query) {
