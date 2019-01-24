@@ -20,7 +20,7 @@ app.get(('/'), (req, res) => {
 
 app.post(('/search'), (req, res) => {
   res.send('hello');
-  // console.log(req.body.latitude, req.body.longitude, req.body.query);
+  console.log(req.body.latitude, req.body.longitude, req.body.query);
   // var location =  "";
   // if (req.body.query) {
   //   getCoords(req.body.query).then((response) => {
@@ -39,13 +39,13 @@ app.post(('/search'), (req, res) => {
   //     })
   //   });
   // }else{
-  //   axios.get(`${process.env.DS_APIKEY}${req.body.latitude}, ${req.body.longitude}`).then(dsweather => {
-  //     res.send(dsweather.data);
-  //   }).catch(err => {
-  //     if(err) {
-  //       console.log(err)
-  //     }
-  //   });
+    axios.get(`${process.env.DS_APIKEY}${req.body.latitude}, ${req.body.longitude}`).then(dsweather => {
+      res.send(dsweather.data);
+    }).catch(err => {
+      if(err) {
+        console.log(err)
+      }
+    });
   // }
 
 
