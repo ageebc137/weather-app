@@ -1,5 +1,6 @@
 const button = document.querySelector('#location');
 const temp = document.querySelector('#temperature');
+const city = document.querySelector('#city');
 const currentLoc = {};
 let locationMod = {
   latitude: '',
@@ -25,8 +26,9 @@ function buttonPress(e) {
 
 function getWeather(locationMod) {
 
-  axios.post('//localhost:4000/search', locationMod).then((res) => {
+  axios.post('https://infinite-caverns-54502.herokuapp.com', locationMod).then((res) => {
     console.log(res);
+    city.innerHTML = res.data.city;
     temp.innerHTML = res.data.currently.temperature;
   }).catch(err => {
     if (err) {
