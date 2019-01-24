@@ -38,7 +38,7 @@ app.post(('/search'), (req, res) => {
   //     })
   //   });
   // }else{
-    axios.get(`${process.env.DS_APIKEY}${req.body.latitude}, ${req.body.longitude}`).then(dsweather => {
+    axios.get(`https://api.darksky.net/forecast/0f453cfad4840e42ce7adc03a357981a/${req.body.latitude}, ${req.body.longitude}`).then(dsweather => {
       res.send(dsweather.data);
     }).catch(err => {
       if(err) {
