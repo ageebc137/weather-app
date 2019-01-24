@@ -26,7 +26,7 @@ function buttonPress(e) {
 
 function getWeather(locationMod) {
 
-  axios.post('https://infinite-caverns-54502.herokuapp.com', locationMod).then((res) => {
+  axios.post('https://infinite-caverns-54502.herokuapp.com/search', locationMod).then((res) => {
     console.log(res);
     city.innerHTML = res.data.city;
     temp.innerHTML = res.data.currently.temperature;
